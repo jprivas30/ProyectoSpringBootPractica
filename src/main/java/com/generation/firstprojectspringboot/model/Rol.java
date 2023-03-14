@@ -1,8 +1,11 @@
 package com.generation.firstprojectspringboot.model;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,17 +13,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-@Entity(name="equipos")
+@Entity(name="roles")
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 
-public class Equipo {
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer equipo_id;
-    private String nombre_proyecto;
-    private Integer integrantes;
+    @NotNull
+    private int id;
+
+    @Column(name= "nombre_rol")
+    private String nombreRol;
 
 }
