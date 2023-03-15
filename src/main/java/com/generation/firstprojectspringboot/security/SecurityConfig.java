@@ -12,9 +12,10 @@ import org.springframework.security.web.SecurityFilterChain;
 
 public class SecurityConfig{
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-        .antMatchers("/estudiantes/FindAll").permitAll()
+        .antMatchers("/estudiante/FindAll").permitAll()
+        .antMatchers("/login").permitAll()
         .anyRequest().authenticated();
         return http.build();
     }
